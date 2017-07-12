@@ -1,0 +1,39 @@
+import _ from 'lodash';
+import React, { Component } from 'react';
+import React from 'react-dom';
+import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
+import SearchBar from './search-bar';
+import VideoDetail from './video-detail';
+
+const API_KEY = 'AIzaSyDwejmPUTqorgf0MuUzFbu4CFPf87Z5Oug';
+
+class Video extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			videos: [],
+			selectedVideo: null
+		};
+		this.videoSearch('bucketlist');
+	}
+	videoSearch(term) {
+		YTSearch({key: API_KEY, term: term}, (videos) => {
+			this.setState({
+				videos: videos,
+				selectedVideo: videos[0]
+			});
+		});
+	}
+	render() {
+		const videoSearch = _.debounce((term) =>{ this.videoSearch(term) }, 1800);
+		return (
+			<div>
+				<SearchBar onSearchTermChange={videoSearch} />
+				<videoDetail video={this.state.selectedVideo} />
+			</div>
+		);
+	}
+}
+export default Video;
