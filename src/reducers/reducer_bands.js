@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 
 export default function() {
 	// return [
 // before challenge
@@ -27,5 +26,3 @@ var music = [
 // );
 	return music;
 }
-
-// export default BandsReducer;

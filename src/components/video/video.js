@@ -25,11 +25,11 @@ class Video extends Component {
 		});
 	}
 	render() {
-		const videoSearch = _.debounce((term) =>{ this.videoSearch(term) }, 1800);
+		const videoSearch = _.debounce((term) =>{ this.videoSearch(term) }, 300);
 		return (
 			<div>
 				<SearchBar onSearchTermChange={videoSearch} />
-				<videoDetail video={this.state.selectedVideo} />
+				<VideoDetail video={this.state.selectedVideo} />
 			</div>
 		);
 	}
