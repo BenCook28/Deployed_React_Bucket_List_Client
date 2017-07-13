@@ -9,7 +9,7 @@ class App extends Component {
 			<div>
 				<NavBarHeader />
 				<BandList />
-				<Video />
+				{/*<Video />*/}
 			</div>
 		);
 	}

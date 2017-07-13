@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { selectBand } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class BandList extends Component{
 	renderList(){
 		return this.props.bands.map((bands) => {
 			return (
-				<li key={bands.name} className="list-group-item">{bands.name}</li>
+				<li key={bands.name} onClick={() => this.props.selectBand(bands)} className="list-group-item">{bands.name}</li>
 			);
 		});
 	}
@@ -28,5 +31,9 @@ function mapStateToProps(state){
 	}
 }
 
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ selectBand }, dispatch);
+}
+
 //export
-export default connect(mapStateToProps)(BandList);
+export default connect(mapStateToProps, mapDispatchToProps)(BandList);
