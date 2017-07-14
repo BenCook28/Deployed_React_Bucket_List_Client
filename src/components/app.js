@@ -3,6 +3,7 @@ import NavBarHeader from './Nav';
 import Video from './video/video';
 import BandList from '../containers/BandsList';
 import Signin from './auth/signin';
+import PostNewForm from './list/new-list-item.js';
 
 class App extends Component {
 	render() {
@@ -11,6 +12,7 @@ class App extends Component {
 				<NavBarHeader />
 				<BandList />
 				<Video />
+				<PostNewForm />
 				{this.props.children}
 			</div>
 		);
