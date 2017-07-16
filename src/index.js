@@ -7,6 +7,8 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/app';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
+import Signout from './components/auth/signout';
+import RequireAuth from './components/auth/require_auth';
 import ListItem from './components/list/new-list-item';
 import reducers from './reducers';
 
@@ -19,7 +21,7 @@ ReactDOM.render(
 			<Route path="signin" component={Signin} />
 			<Route path="signout" component={Signout} />
 			<Route path="signup" component={Signup} />
-			<Route path ="newitem" component={PostNewForm} />
+			<Route path ="newitem" component={RequireAuth(ListItem)} />
 			</Route>
 		</Router>
 	</Provider>
