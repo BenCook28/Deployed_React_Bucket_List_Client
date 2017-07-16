@@ -20,7 +20,7 @@ class NavBarHeader extends Component{
 			<Navbar>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<a href="#">YouTube Plus</a>
+						<a href="#">Bucket List Plus</a>
 					</Navbar.Brand>
 				</Navbar.Header>
 					<Nav>
