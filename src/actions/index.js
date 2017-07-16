@@ -9,6 +9,7 @@
 // 		payload: band
 // 	};
 // }
+
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
@@ -28,17 +29,29 @@ export function createPost(props) {
 }
 
 export function signinUser({ email, password }){
-	console.log("test test test");
 	return function(dispatch){
 		axios.post(`${ROOT_URL}/signin`, {email, password})
 			.then(response => {
 				dispatch({ type: AUTH_USER});
-				console.log("hi");
 				localStorage.setItem('token', response.data.token);
 				browserHistory.push('/newitem');
 			})
 				.catch(response => 
 					dispatch(authError("Bad login info")));
+			}
+	}
+
+export function signupUser({ email, password }){
+	return function(dispatch){
+		axios.post(`${ROOT_URL}/signup`, {email, password})
+			.then(response => {
+				dispatch({ type: AUTH_USER});
+
+				localStorage.setItem('token', response.data.token);
+				browserHistory.push('/newitem');
+			})
+				.catch(response => 
+					dispatch(authError(response.data.error)));
 			}
 	}
 
