@@ -18,13 +18,14 @@ class ListShow extends Component {
 		}
 	}
 componentWillMount() {
-	axios.get(ROOT_URL + '/items/' + this.props.params.id, config)
-		.then( (response) => {
-			console.log("Response", response)
-			this.setState({
-				post: response.data
-			})
-		});
+	this.props.fetchPost(this.props.params.id);
+	// axios.get(ROOT_URL + '/items/' + this.props.params.id, config)
+	// 	.then( (response) => {
+	// 		console.log("Response", response)
+	// 		this.setState({
+	// 			post: response.data
+	// 		})
+	// 	});
 	}
 	
 	onDeleteClick() {
@@ -32,7 +33,7 @@ componentWillMount() {
 	}
 
 	render() {
-		const post = this.state.post;
+		const post = this.props.post;
 			if (!post) {
 		return (
 			<div>
@@ -50,7 +51,7 @@ componentWillMount() {
 				<div id="space"></div>
 				<p>{post.content}</p>
 				<Link to="/items" className="btn btn-primary">Back to the Post List</Link>
-
+				<Link to={`/updateitem/${this.props.params.id}`} className="btn btn-info">Update List</Link>
 				<button className="btn btn-danger"
 					onClick={this.onDeleteClick.bind(this)}>
 					Delte Post

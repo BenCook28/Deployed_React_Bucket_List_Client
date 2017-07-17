@@ -18,7 +18,8 @@ import { AUTH_USER,
 		 CREATE_POSTS,
 		 FETCH_POSTS,
 		 FETCH_POST,
-		 DELETE_POST
+		 DELETE_POST,
+		 UPDATE_POST
 		} from './types';
 
 import authReducer from '../reducers/auth_reducer';
@@ -113,6 +114,19 @@ export function deletePost(id){
 				console.log("Response", response)
 				dispatch({
 					type: DELETE_POST,
+					payload: response
+				});
+				browserHistory.push('/items');
+			});
+		}
+	}
+
+export function updatePost(props, id) {
+	return function(dispatch) {
+		axios.put(`${ROOT_URL}/items/${id}`, { props }, config)
+			.then(response => {
+				dispatch({
+					type: UPDATE_POST,
 					payload: response
 				});
 				browserHistory.push('/items');

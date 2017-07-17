@@ -26,6 +26,7 @@ ReactDOM.render(
 			<Route path ="newitem" component={RequireAuth(ListItem)} />
 			<Route path="items" component={RequireAuth(ListsShow)} />
 			<Route path="items/:id" component={RequireAuth(ListShow)} />
+			<Route path="updateitem/:id" component={RequireAuth(UpdateList)} />
 			</Route>
 		</Router>
 	</Provider>
