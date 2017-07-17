@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 // import BandsReducer from './reducer_bands';
 // import SelectedBand from './reducer_selectedband';
-import PostsReducer from './reducer_posts';
-import {reducer as formReducer} from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 import authReducer from './auth_reducer';
+import PostsReducer from './reducer_posts';
 
 //Define the properties of our Application State here
 	const rootReducer = combineReducers({
@@ -11,8 +11,7 @@ import authReducer from './auth_reducer';
 		auth: authReducer,
 		posts: PostsReducer
 		// bands: BandsReducer,
-		// SelectedBand: SelectedBand
-			
+		// SelectedBand: SelectedBand			
 	});
 
 	export default rootReducer;
