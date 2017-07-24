@@ -24,7 +24,7 @@ import { AUTH_USER,
 
 import authReducer from '../reducers/auth_reducer';
 
-const ROOT_URL = 'http://localhost:3000';
+const ROOT_URL = 'https://bucketlist-server-ben-cook.herokuapp.com/api';
 
 var config = {
 	headers: { authorization: localStorage.getItem('token') }
@@ -42,6 +42,8 @@ var config = {
 // }
 
 export function createPost(props) {
+	config.headers.authorization = localStorage.getItem('token');
+		console.log(props, config);
 	return function(dispatch){
 		axios.post(`${ROOT_URL}/newitem`, { props }, config)
 		.then(request => {

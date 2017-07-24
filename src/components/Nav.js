@@ -17,7 +17,7 @@ class NavBarHeader extends Component{
 
 	render(){
 		return(
-			<Navbar>
+			<Navbar className = "navBar">
 				<Navbar.Header>
 					<Navbar.Brand>
 						<a href="#">Bucket List Plus</a>

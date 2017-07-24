@@ -4,7 +4,7 @@ import { Link, browserHistory } from 'react-router';
 import { fetchPost, deletePost } from '../../actions/index';
 import axios from 'axios';
 
-const ROOT_URL = 'http://localhost: 3000';
+const ROOT_URL = 'https://bucketlist-server-ben-cook.herokuapp.com/api';
 
 const config = {
 	headers: { authorization: localStorage.getItem('token') }
@@ -29,7 +29,10 @@ componentWillMount() {
 	}
 	
 	onDeleteClick() {
-		this.props.deletePost(this.params.id);
+		console.log(this)
+		console.log("Hi Bryce")
+		this.props.deletePost(this.props.params.id);
+		console.log(this)
 	}
 
 	render() {

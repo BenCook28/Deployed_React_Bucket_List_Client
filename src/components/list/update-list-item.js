@@ -4,7 +4,7 @@ import { fetchPost, updatePost } from '../../actions/index';
 import { Link } from 'react-router';
 import axios from 'axios';
 
-const ROOT_URL = 'http://localhost:3000';
+const ROOT_URL = 'https://bucketlist-server-ben-cook.herokuapp.com/api';
 
 const config = {
 	headers: { authorization: localStorage.getItem('token') }
@@ -23,35 +23,35 @@ class UpdateList extends Component {
 	handleFormSubmit(formProps){
 		this.props.updatePost(formProps, this.props.params.id);
 	}
-}
 
 render() {
 	const { fields: { title, topic, url, content }, handleSubmit } =this.props;
-	return (
-		<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-			<h3>Update Post</h3>
+		return (
+			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				<h3>Update Post</h3>
 
-			<fieldset className="form-group">
-				<label>Title</label>
-				<input type="text" className="form-control" {...title} />
-			</fieldset>
-			<fieldset className="form-group">
-				<label>Category</label>
-				<input type="text" className="form-control" {...topic} />
-			</fieldset>
-			<fieldset className="form-group">
-				<label>URL</label>
-				<input type="text" className="form-control" {...url} />
-			</fieldset>
-			<fieldset className="form-group">
-				<label>Content</label>
-				<input type="text" rows="8" className="form-control text" {...content} />
-			</fieldset>
+				<fieldset className="form-group">
+					<label>Title</label>
+					<input type="text" className="form-control" {...title} />
+				</fieldset>
+				<fieldset className="form-group">
+					<label>Category</label>
+					<input type="text" className="form-control" {...topic} />
+				</fieldset>
+				<fieldset className="form-group">
+					<label>URL</label>
+					<input type="text" className="form-control" {...url} />
+				</fieldset>
+				<fieldset className="form-group">
+					<label>Content</label>
+					<input type="text" rows="8" className="form-control text" {...content} />
+				</fieldset>
 
-			<button type="submit" className="btn btn-primary">Save</button>
-			<Link to="/items" className="btn btn-danger">Cancel</Link>
-		</form>
-	);
+				<button type="submit" className="btn btn-primary">Save</button>
+				<Link to="/items" className="btn btn-danger">Cancel</Link>
+			</form>
+		);
+	}
 }
 
 UpdateList.propTypes = {

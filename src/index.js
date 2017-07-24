@@ -12,6 +12,7 @@ import RequireAuth from './components/auth/require_auth';
 import ListItem from './components/list/new-list-item';
 import ListsShow from './components/list/list-items';
 import ListShow from './components/list/list-show';
+import UpdateList from './components/list/update-list-item';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

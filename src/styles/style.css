@@ -1,3 +1,11 @@
+body {
+	background-image: url("../img/background.jpeg") !important;
+	-webkit-background-size: 100% 100% !important;
+	-moz-background-size: 100% 100% !important;
+	background-size: 100% 100% !important;
+	-o-background-size: 100% 100% !important;
+}
+
 .search-bar {
 	margin: 20px;
 	text-align: left;
@@ -6,7 +14,7 @@
 .vidSearchLbl {
 	padding-right: 10px;
 	font-family: sans-serif;
-	color: orange;
+	color: navy;
 	font-size: 20px;
 }
 
@@ -23,4 +31,13 @@
 	padding: 10px;
 	border: 2px solid orange;
 	border-radius: 4px;
+}
+body {
+	color: navy;
+}
+.container{
+	color: navy;
+}
+.navBar a{
+	color: navy !important;
 }

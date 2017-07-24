@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 class ListItem extends Component {
 	handleFormSubmit(formProps){
 		this.props.createPost(formProps);
+		console.log(formProps);
 	}
 	render() {
 		const { fields: { title, topic, url, content }, handleSubmit } = this.props;
