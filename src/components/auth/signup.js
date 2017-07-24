@@ -58,7 +58,7 @@ function validate(formProps){
 	}
 
 	if (formProps.password !== formProps.passwordConfirm) {
-		error.password = 'Passwords must match';
+		errors.password = 'Passwords must match';
 	}
 	console.log(formProps)
 	return errors;
