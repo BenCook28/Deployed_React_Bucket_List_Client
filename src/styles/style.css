@@ -1,5 +1,5 @@
 body {
-	background-image: url("../img/background.jpeg") !important;
+	background-image: url("../img/background.jpeg") no-repeat fixed top center !important;
 	-webkit-background-size: 100% 100% !important;
 	-moz-background-size: 100% 100% !important;
 	background-size: 100% 100% !important;
